@@ -33,6 +33,57 @@ Do NOT use for general web scraping -- use web_scrape_to_markdown. Do NOT use fo
         },
         required: ["claim"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "claim": {
+              "type": "string",
+              "description": "Claim checked"
+            },
+            "verdict": {
+              "type": "string",
+              "description": "Verdict (true/false/partially true/unverifiable)"
+            },
+            "confidence": {
+              "type": "number",
+              "description": "Confidence 0-100"
+            },
+            "reasoning": {
+              "type": "string",
+              "description": "Explanation of verdict"
+            },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "snippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "sourcesFound": {
+              "type": "number",
+              "description": "Number of sources found"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "claim",
+            "verdict",
+            "confidence",
+            "reasoning"
+          ]
+        },
     },
   ],
 };
