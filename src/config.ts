@@ -3,7 +3,7 @@ import type { ApiConfig } from "./shared";
 export const API_CONFIG: ApiConfig = {
   name: "fact-checker",
   slug: "fact-checker",
-  description: "Fact-check claims by searching the web and returning relevant evidence snippets.",
+  description: "Verify factual claims with web evidence, source URLs, and confidence assessment. AI-powered fact-checking.",
   version: "1.0.0",
   routes: [
     {
@@ -12,7 +12,19 @@ export const API_CONFIG: ApiConfig = {
       price: "$0.005",
       description: "Fact-check a claim by searching for evidence online",
       toolName: "research_check_fact",
-      toolDescription: "Use this when you need to verify a factual claim, check if a statement is true, or find evidence supporting or contradicting a claim. Accepts a claim text and returns relevant web snippets, source URLs, and a confidence assessment. Do NOT use for general web scraping — use web_scrape_to_markdown instead. Do NOT use for SEO analysis — use seo_audit_page instead. Do NOT use for sentiment analysis — use sentiment_analyzer instead.",
+      toolDescription: `Use this when you need to verify a factual claim or check if a statement is true. Searches the web for evidence and returns sourced snippets with a confidence assessment.
+
+1. verdict: assessment result (supported, contradicted, partially_supported, unverifiable)
+2. confidence: confidence in the verdict 0-100
+3. sources: array of evidence snippets with title, URL, relevant excerpt, and stance (supports/contradicts/neutral)
+4. summary: concise explanation of why the claim is supported or contradicted
+5. claimAnalyzed: the original claim as parsed
+
+Example output: {"verdict":"supported","confidence":88,"summary":"Multiple sources confirm the Eiffel Tower is 330m tall","sources":[{"title":"Wikipedia","url":"https://en.wikipedia.org/wiki/Eiffel_Tower","excerpt":"The tower is 330 metres tall...","stance":"supports"}],"claimAnalyzed":"The Eiffel Tower is 330 meters tall"}
+
+Use this BEFORE presenting unverified facts to users. Essential for content validation, research verification, and combating misinformation.
+
+Do NOT use for general web scraping -- use web_scrape_to_markdown. Do NOT use for research reports -- use research_generate_report. Do NOT use for sentiment analysis -- use text_analyze_sentiment.`,
       inputSchema: {
         type: "object",
         properties: {
