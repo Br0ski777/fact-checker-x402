@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "sse",
-      "url": "https://fact-checker-x402-production.up.railway.app/mcp"
+      "url": "https://fact-checker.api.klymax402.com/mcp"
     }
   ]
 }
