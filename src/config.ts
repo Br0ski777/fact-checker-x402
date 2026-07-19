@@ -9,7 +9,7 @@ export const API_CONFIG: ApiConfig = {
     {
       method: "POST",
       path: "/api/check",
-      price: "$0.005",
+      price: "$0.012",
       description: "Fact-check a claim by searching for evidence online",
       toolName: "research_check_fact",
       toolDescription: "Use this when you need to verify a factual claim, check if a statement is true, or find evidence supporting or contradicting a claim. Accepts a claim text and returns relevant web snippets, source URLs, and a confidence assessment. Do NOT use for general web scraping — use web_scrape_to_markdown instead. Do NOT use for SEO analysis — use seo_audit_page instead. Do NOT use for sentiment analysis — use sentiment_analyzer instead.",
