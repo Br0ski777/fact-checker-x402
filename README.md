@@ -37,7 +37,7 @@ Any x402-aware client ([`@x402/fetch`](https://www.npmjs.com/package/@x402/fetch
 
 | Tool | Method | Path | Price | Description |
 |---|---|---|---|---|
-| `research_check_fact` | POST | `/api/check` | $0.005 | Fact-check a claim by searching for evidence online |
+| `research_check_fact` | POST | `/api/check` | $0.012 | Fact-check a claim by searching for evidence online |
 
 ### `research_check_fact`
 
